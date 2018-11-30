@@ -36,6 +36,16 @@ class HomePage extends Component {
         // })
     }
 
+    componentDidMount = () => {
+        axios.get('/api/messages')
+        .then((res) => {
+            console.log(res.data)
+            this.props.loadAllMessages(res.data)
+        }).catch((e) => {
+            console.log(e);
+        })
+    }
+
     render() {
         return (
             <div className="content-area">
