@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 
+class Message extends Component {
+    render() {
+        return (
+            <div className="message">
+                {this.props.content}
+            </div>
+        )
+    }
+}
+
 class HomePage extends Component {
     constructor(props) {
         super(props);
@@ -31,8 +41,7 @@ class HomePage extends Component {
             <div className="content-area">
                 {this.state.content}
                 <div className="messages">
-                    {/* {this.props.messages.map((messageData, i) => <Message key={i} content={message})} */}
-                    {JSON.stringify(this.props.messages)}
+                    {this.props.messages.map((messageData, i) => <Message key={i} content={messageData}/>)}
                 </div>
                 <input value={this.state.messageValue} onChange={this.updateMessage}/>
                 <button onClick={this.sendSomeData}>Send some post data</button>
