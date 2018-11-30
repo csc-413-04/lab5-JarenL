@@ -32,6 +32,7 @@ class HomePage extends Component {
                 {this.state.content}
                 <div className="messages">
                     {/* {this.props.messages.map((messageData, i) => <Message key={i} content={message})} */}
+                    {JSON.stringify(this.props.messages)}
                 </div>
                 <input value={this.state.messageValue} onChange={this.updateMessage}/>
                 <button onClick={this.sendSomeData}>Send some post data</button>
